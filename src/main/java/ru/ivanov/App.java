@@ -19,12 +19,14 @@ public class App {
             session.beginTransaction();
             // Perform database operations
 
-            Principal principal = session.get(Principal.class, 1);
+            School school = session.get(School.class, 5);
 
-            School school = principal.getSchool();
-            int schoolNumber = principal.getSchool().getSchoolNumber();
-            System.out.println(school);
-            System.out.println(schoolNumber);
+            Principal principal = session.get(Principal.class, 5);
+
+            principal.setSchool(school);
+
+            school.setPrincipal(principal);
+
 
 
             //Commit transaction
