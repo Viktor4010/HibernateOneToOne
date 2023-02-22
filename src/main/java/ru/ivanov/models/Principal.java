@@ -1,5 +1,7 @@
 package ru.ivanov.models;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,7 @@ public class Principal {
     private int age;
 
     @OneToOne(mappedBy = "principal")
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
     private School school;
 
     public Principal() {
